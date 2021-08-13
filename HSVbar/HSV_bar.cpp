@@ -10,10 +10,11 @@ using namespace std;
 
 Mat imgHSV, mask;
 
-//«Ø¥ßHSV_barªì©l­È
+//å»ºç«‹HSV_baråˆå§‹å€¼
 int hmin = 0, smin = 110, vmin = 153;
 int hmax = 19, smax = 240, vmax = 255;
 
+//è‡ªè¡Œå®šç¾©baræ§åˆ¶HSVè¦–çª—
 void bar_window_set()
 {
 	namedWindow("Trackbars", (640, 200));
@@ -39,25 +40,25 @@ void main()
 
 	Mat img = imread(path);
 
-	cvtColor(img, imgHSV, COLOR_BGR2HSV);//±N¹Ï¤ùÂà¬°HSV®y¼Ğ¨t²Î
+	cvtColor(img, imgHSV, COLOR_BGR2HSV);//å°‡åœ–ç‰‡è½‰ç‚ºHSVåº§æ¨™ç³»çµ±
 
-	bar_window_set(); //¦Û¦æ©w¸qbar±±¨îHSVµøµ¡
+	bar_window_set(); //è‡ªè¡Œå®šç¾©baræ§åˆ¶HSVè¦–çª—
 
 
 	while (true)
 
 	{
-		Scalar lower(hmin, smin, vmin);//bar_window©w¸q¦V¶q
+		Scalar lower(hmin, smin, vmin);//bar_windowå®šç¾©å‘é‡
 		Scalar upper(hmax, smax, vmax);
 
-		inRange(imgHSV, lower, upper, mask); //½Õ¾ãmask¹Ï¤ùHSV½d³ò
+		inRange(imgHSV, lower, upper, mask); //èª¿æ•´maskåœ–ç‰‡HSVç¯„åœ
 
 
 		imshow("Image", img);
 
 		//imshow("Image HSV", imgHSV);
 
-		imshow("Image Mask", mask);//½ÕÅÜ«áªºHSVmask¼v¹³
+		imshow("Image Mask", mask);//èª¿è®Šå¾Œçš„HSVmaskå½±åƒ
 
 		waitKey(1);
 
