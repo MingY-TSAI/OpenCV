@@ -1,4 +1,4 @@
-//Scalar¦V¶q¥Î©ó,½Õ¾ãÃC¦â¡A½Õ¾ãmask
+//Scalarå‘é‡ç”¨æ–¼,èª¿æ•´é¡è‰²ï¼Œèª¿æ•´mask
 #include <iostream>
 #include <opencv2/opencv.hpp>
 using namespace std;
@@ -7,29 +7,29 @@ using namespace cv;
 
 int main()
 {
-	//scalar¬°¹w³]4¶¥¦V¶q(RGBA)
+	//scalarç‚ºé è¨­4éšå‘é‡(BGRA)
 	Scalar a = Scalar(1, 3);
 	cout << "m0  = " << endl << a << endl;
-	//scalar¥Ñ°}¦C²Õ¦¨
-	cout << "aªº²Ä¤@­Ó¯Á¤Ş¤¸¯À" << a[0] << endl << endl;
+	//scalarç”±é™£åˆ—çµ„æˆ
+	cout << "açš„ç¬¬ä¸€å€‹ç´¢å¼•å…ƒç´ " << a[0] << endl << endl;
 
 
-	//7*7¯x°}¤º¶ë1,3³q¹D
+	//7*7çŸ©é™£å…§å¡1,3é€šé“
 	Mat M(7, 7, CV_32FC2, Scalar(1, 3));
 	cout << "m0  = \n" << M << endl << endl;
 
-	//±`¥Î®×¨Ò1-color
+	//å¸¸ç”¨æ¡ˆä¾‹1-color
 	Mat red_m(256, 256, CV_8UC3, Scalar(0, 0, 255, 22));
 	imshow("Red", red_m);
 
-	//±`¥Î®×¨Ò2-image-mask
+	//å¸¸ç”¨æ¡ˆä¾‹2-image-mask
 	int hmin = 90, smin = 110, vmin = 153;
 	int hmax = 179, smax = 240, vmax = 255;
 	Mat mask;
-	Scalar lower(hmin, smin, vmin);//bar_window©w¸q¦V¶q 
+	Scalar lower(hmin, smin, vmin);//bar_windowå®šç¾©å‘é‡ 
 	Scalar upper(hmax, smax, vmax);
 
-	inRange(red_m, lower, upper, mask); //½Õ¾ãmask¹Ï¤ùHSV½d³ò 
+	inRange(red_m, lower, upper, mask); //èª¿æ•´maskåœ–ç‰‡HSVç¯„åœ 
 	imshow("Red-mask", mask);
 
 	
