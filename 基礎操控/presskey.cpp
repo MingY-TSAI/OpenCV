@@ -25,12 +25,12 @@ int main()
 
     imshow("Display window", img);
 
-    int k = waitKey(0); // ±µ¦¬Áä½L«öÁä
+    int k = waitKey(0); // æ¥æ”¶éµç›¤æŒ‰éµ
 
-    if (k == 's') //«ösÁä«á¤ÏÀ³
+    if (k == 's') //æŒ‰séµå¾Œåæ‡‰
 
     {
-        imwrite("starry_night.png", img);//¤U¸ü¹Ï¤ù
+        imwrite("starry_night.png", img);//ä¸‹è¼‰åœ–ç‰‡
     }
 
     return 0;
