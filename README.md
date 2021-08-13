@@ -2,7 +2,7 @@
 OpenCV基礎
 
 
-# 1.基礎操控
+# 1.基礎操控 https://github.com/MingY-TSAI/OpenCV/tree/main/%E5%9F%BA%E7%A4%8E%E6%93%8D%E6%8E%A7
 常用操作影像，圖片....停留秒數等動作(imgcodecs.hpp)
 ，基本函數操作
 
