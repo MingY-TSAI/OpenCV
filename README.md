@@ -4,6 +4,7 @@ OpenCV基礎
 
 # 1.基礎操控
 常用操作影像，圖片....停留秒數等動作(imgcodecs.hpp)
+基本函數操作
 
 imread()
 
