@@ -3,7 +3,12 @@ OpenCV基礎
 
 
 # 1.基礎操控
-操作影像，圖片....停留秒數等動作(highgui.hpp)
+常用操作影像，圖片....停留秒數等動作(imgcodecs.hpp)
+
+imread()
+imshow()
+imwrite()
+waitKey()
 
 
 # 2.矩陣
