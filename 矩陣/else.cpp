@@ -1,3 +1,4 @@
+//æ¡†ç¯„åœ
 #include <iostream>
 #include <opencv2/opencv.hpp>
 using namespace std;
@@ -5,26 +6,26 @@ using namespace cv;
 
 int main()
 {
-	//x,y¶b®y¼Ğ(¹³¯À®y¼Ğ)
+	//x,yè»¸åº§æ¨™(åƒç´ åº§æ¨™)
 	Point a = Point(2, 2);
-	cout << "ÂI®y¼Ğa : " << a << endl;
+	cout << "é»åº§æ¨™a : " << a << endl;
 	Point b = Point(2, 1);
-	cout << "ÂI®y¼Ğb-a : " << b-a << endl << endl;
+	cout << "é»åº§æ¨™b-a : " << b-a << endl << endl;
 
-	//Size¥i¬d¸ß¡A©Î§@¬°°Ñ¼Æ»s§@¯x°}(¼e,°ª)
-	cout << "aªº¼e°ª : " <<  Size(a) << endl;
+	//Sizeå¯æŸ¥è©¢ï¼Œæˆ–ä½œç‚ºåƒæ•¸è£½ä½œçŸ©é™£(å¯¬,é«˜)
+	cout << "açš„å¯¬é«˜ : " <<  Size(a) << endl;
 	Size c = Size(30, 2);
-	cout << "cª«¥ó(¼e,°ª) : " << c << endl;
-	cout << "cª«¥ó¼e : " << c.width << endl;
-	cout << "cª«¥ó°ª : " << c.height << endl << endl;
+	cout << "cç‰©ä»¶(å¯¬,é«˜) : " << c << endl;
+	cout << "cç‰©ä»¶å¯¬ : " << c.width << endl;
+	cout << "cç‰©ä»¶é«˜ : " << c.height << endl << endl;
 
-	//x,y¼eªø
+	//x,yå¯¬é•·
 	Rect d = Rect(1, 2, 30, 30);
-	cout << "¯x§Îª«¥ó" << d << endl;
-	cout << "¯x§Îª«¥óx®y¼Ğ" << d.x << endl;
-	cout << "¯x§Îª«¥óy®y¼Ğ" << d.y << endl;
-	cout << "¯x§Îª«¥ó¼e«×" << d.width << endl;
-	cout << "¯x§Îª«¥ó°ª«×" << d.height << endl;
+	cout << "çŸ©å½¢ç‰©ä»¶" << d << endl;
+	cout << "çŸ©å½¢ç‰©ä»¶xåº§æ¨™" << d.x << endl;
+	cout << "çŸ©å½¢ç‰©ä»¶yåº§æ¨™" << d.y << endl;
+	cout << "çŸ©å½¢ç‰©ä»¶å¯¬åº¦" << d.width << endl;
+	cout << "çŸ©å½¢ç‰©ä»¶é«˜åº¦" << d.height << endl;
 
 
 	return 0;
