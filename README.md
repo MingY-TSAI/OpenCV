@@ -6,8 +6,11 @@ OpenCV基礎
 常用操作影像，圖片....停留秒數等動作(imgcodecs.hpp)
 
 imread()
+
 imshow()
+
 imwrite()
+
 waitKey()
 
 
