@@ -1,3 +1,6 @@
+
+
+
 CV_8U：8-bit unsigned integers ( 0~255 )
 CV_8S：8-bit signed integers ( -128~127 )
 CV_16U：16-bit unsigned integers ( 0~65535 )                           →大小相當於short
@@ -14,7 +17,9 @@ Mat_<int>對應CV_32S
 Mat_<float>對應CV_32F
 Mat_<double>對應CV_64F
 
+
 http://wiki.opencv.org.cn/index.php?title=OpenCV_%E7%BC%96%E7%A8%8B%E7%AE%80%E4%BB%8B%EF%BC%88%E7%9F%A9%E9%98%B5/%E5%9B%BE%E5%83%8F/%E8%A7%86%E9%A2%91%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%BB%E5%86%99%E6%93%8D%E4%BD%9C%EF%BC%89&variant=zh-tw#.E4.BA.94.E3.80.81.E7.9F.A9.E9.98.B5.E5.A4.84.E7.90.86
 https://www.itread01.com/content/1548511039.html
 https://home.gamer.com.tw/creationDetail.php?sn=2988339
 https://blog.csdn.net/liuweiyuxiang/article/details/76929534
+https://blog.csdn.net/gdut2015go/article/details/46301821

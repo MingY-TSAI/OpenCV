@@ -1,3 +1,4 @@
+//圖片物件由Mat矩陣建構
 #include <iostream>
 #include <opencv2/opencv.hpp>
 using namespace std;
@@ -19,6 +20,7 @@ int main()
 	//轉置矩陣
 	cout << "(m1+3) = = \n" << (m1 + 3).t() << endl << endl;
 
+
 	//反矩陣
 	Mat m5 = Mat::eye(5, 5, CV_32F);
 	Mat m5inv = m5.inv();
@@ -34,5 +36,11 @@ int main()
 	int nonZerosNum1 = countNonZero(m0); // m0為輸入矩陣或影象()
 	cout << "m0  = " << endl << m0 << endl;
 	cout << "m0中非零元素個數 = " << nonZerosNum1 << endl << endl;
+
+	//圖片物件行列數
+	Mat img = imread("resources/1.png");
+	cout << "圖片有幾個row組成" << img.rows << endl;
+	cout << "圖片有幾個col組成" << img.cols << endl;
+
 	return 0;
 }
