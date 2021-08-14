@@ -1,4 +1,4 @@
-//¹Ï¤ùª«¥ó¥ÑMat¯x°}«Øºc
+//åœ–ç‰‡ç‰©ä»¶ç”±MatçŸ©é™£å»ºæ§‹
 #include <iostream>
 #include <opencv2/opencv.hpp>
 using namespace std;
@@ -7,40 +7,47 @@ using namespace cv;
 
 int main() 
 {
-	Mat m1 = Mat::eye(2, 3, CV_32F); //¨Ï¥Îcv¦WºÙªÅ¶¡¥i¬Ù²¤cv::¦r­º¡A¤U¦P
+	Mat m1 = Mat::eye(2, 3, CV_32F); //ä½¿ç”¨cvåç¨±ç©ºé–“å¯çœç•¥cv::å­—é¦–ï¼Œä¸‹åŒ
 	Mat m2 = Mat::ones(3, 2, CV_32F);
 	cout << "m1  = " << endl << m1 << endl << endl;
 	cout << "m2  = " << endl << m2 << endl << endl;
-	// ¤¸¯À¬Û­¼
+	// å…ƒç´ ç›¸ä¹˜
 	cout << "m1.*2 = \n" << m1 * 2 << endl << endl;
-	//¤¸¯À­Ó§O¬Û­¼
+	//å…ƒç´ å€‹åˆ¥ç›¸ä¹˜
 	cout << "(m1+2).*(m1+3) = \n" << (m1 + 1).mul(m1 + 3) << endl << endl;
-	// ¯x°}¤º¿n 
+	// çŸ©é™£å…§ç© 
 	cout << "(m1+2).(m1+3) = = \n" << (m1 + 1)*(m1 + 3).t() << endl << endl;
-	//Âà¸m¯x°}
+	//è½‰ç½®çŸ©é™£
 	cout << "(m1+3) = = \n" << (m1 + 3).t() << endl << endl;
 
 
-	//¤Ï¯x°}
+	//åçŸ©é™£
 	Mat m5 = Mat::eye(5, 5, CV_32F);
 	Mat m5inv = m5.inv();
 	cout << "m5  = " << endl << m5 << endl << endl;
 	cout << "m5inv = " << endl << m5inv << endl << endl;
 
-	// «D¹s¤¸¯À­Ó¼Æ(¾ã­Órow¤£¬°0¤~ºâ)
-	int nonZerosNum = countNonZero(m5); // m5¬°¿é¤J¯x°}©Î¼v¶H()
+	// éé›¶å…ƒç´ å€‹æ•¸(æ•´å€‹rowä¸ç‚º0æ‰ç®—)
+	int nonZerosNum = countNonZero(m5); // m5ç‚ºè¼¸å…¥çŸ©é™£æˆ–å½±è±¡()
 	cout << "m5  = " << endl << m5 << endl;
-	cout << "m5¤¤«D¹s¤¸¯À­Ó¼Æ = " << nonZerosNum << endl << endl;
+	cout << "m5ä¸­éé›¶å…ƒç´ å€‹æ•¸ = " << nonZerosNum << endl << endl;
 
 	Mat m0 = Mat::zeros(5, 5, CV_32F);
-	int nonZerosNum1 = countNonZero(m0); // m0¬°¿é¤J¯x°}©Î¼v¶H()
+	int nonZerosNum1 = countNonZero(m0); // m0ç‚ºè¼¸å…¥çŸ©é™£æˆ–å½±è±¡()
 	cout << "m0  = " << endl << m0 << endl;
-	cout << "m0¤¤«D¹s¤¸¯À­Ó¼Æ = " << nonZerosNum1 << endl << endl;
+	cout << "m0ä¸­éé›¶å…ƒç´ å€‹æ•¸ = " << nonZerosNum1 << endl << endl;
 
-	//¹Ï¤ùª«¥ó¦æ¦C¼Æ
+	//åœ–ç‰‡ç‰©ä»¶è¡Œåˆ—æ•¸
 	Mat img = imread("resources/1.png");
-	cout << "¹Ï¤ù¦³´X­Órow²Õ¦¨" << img.rows << endl;
-	cout << "¹Ï¤ù¦³´X­Ócol²Õ¦¨" << img.cols << endl;
+	cout << "åœ–ç‰‡æœ‰å¹¾å€‹rowçµ„æˆ" << img.rows << endl;
+	cout << "åœ–ç‰‡æœ‰å¹¾å€‹colçµ„æˆ" << img.cols << endl;
+	
+	//çŸ©é™£å †ç–Š
+	Mat mat = (Mat_<uchar>(2, 4) << 5, 6, 0, 4, 0, 1, 9, 9);
+	cout << mat << endl << endl;
+	vector<uchar> v1 =  { 5, 77, 0, 4 };
+	mat.push_back(Mat(v1).t());
+	cout << mat << endl << endl;
 
 	return 0;
 }
