@@ -40,7 +40,7 @@ int main()
 	//圖片物件行列數
 	Mat img = imread("resources/1.png");
 	cout << "圖片有幾個row組成" << img.rows << endl;
-	cout << "圖片有幾個col組成" << img.cols << endl;
+	cout << "圖片有幾個col組成" << img.cols << endl << endl;
 	
 	//矩陣堆疊
 	Mat mat = (Mat_<uchar>(2, 4) << 5, 6, 0, 4, 0, 1, 9, 9);
