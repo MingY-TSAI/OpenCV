@@ -1,0 +1,51 @@
+- rows 矩阵的行数
+
+- cols 矩阵的列数
+
+- size 矩阵的大小
+
+- dims 矩阵的维度
+
+- channels 矩阵元素的通道数，如过每个像素都由RGB三部分组成，则channels=3
+
+- data uchar（即无符号字符类型unsigned char）指针，指向矩阵数据的指针。
+
+- type 表示矩阵中元素的数据类型及通道数，具有以下的值：
+
+          CV_8UC1     CV_8UC2     CV_8UC3     CV_8UC4
+
+          CV_8SC1     CV_8SC2      CV_8SC3     CV_8SC4
+
+          CV_16UC1   CV_16UC2   CV_16UC3   CV_16UC4
+
+          CV_16SC1   CV_16SC2    CV_16SC3   CV_16SC4
+
+          CV_32SC1   CV_32SC2    CV_32SC3   CV_32SC4
+
+          CV_32FC1    CV_32FC2    CV_32FC3   CV_32FC4
+
+          CV_64FC1    CV_64FC2    CV_64FC3    CV_64FC4
+
+U表示的是无符号整数（unsigned integer），S是有符号整数（signed integer），F是浮点数（float）。
+
+例如：CV_16UC2，表示的是元素类型是一个16位的无符号整数，通道为2。
+
+C1，C2，C3，C4则表示通道数是1,2,3,4。
+
+- depth  表示矩阵中元素的一个通道的数据类型，这个值和type是相关的。例如 type为 CV_16SC2，一个2通道的16位的有符号整数。那么，depth则是CV_16S。depth也是一系列的预定义值，将type的预定义值去掉通道信息就是depth值:CV_8U CV_8S CV_16U CV_16S CV_32S CV_32F CV_64F
+
+- elemSize  表示矩阵一个元素占用的字节数，例如：type是CV_16SC3（3通道，16位），那么elemSize = 3 * 16 / 8 = 6 字节（每字节8bit）
+
+- elemSize1  表示矩阵元素一个通道占用的字节数，例如：type是CV_16CS3（3通道，16位），那么elemSize1 = 16  / 8 = 2 字节 = elemSize / channels
+
+
+
+
+http://wiki.opencv.org.cn/index.php?title=OpenCV_%E7%BC%96%E7%A8%8B%E7%AE%80%E4%BB%8B%EF%BC%88%E7%9F%A9%E9%98%B5/%E5%9B%BE%E5%83%8F/%E8%A7%86%E9%A2%91%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%BB%E5%86%99%E6%93%8D%E4%BD%9C%EF%BC%89&variant=zh-tw#.E4.BA.94.E3.80.81.E7.9F.A9.E9.98.B5.E5.A4.84.E7.90.86
+https://www.itread01.com/content/1548511039.html
+https://home.gamer.com.tw/creationDetail.php?sn=2988339
+https://blog.csdn.net/liuweiyuxiang/article/details/76929534
+https://blog.csdn.net/gdut2015go/article/details/46301821
+https://www.jianshu.com/p/181c69a65b0e
+https://www.w3help.cc/a/202107/288733.html
+https://www.itread01.com/content/1550124919.html
