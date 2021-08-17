@@ -11,6 +11,10 @@ int main()
 	Point b = Point(2, 1);
 	cout << "點座標b-a : " << b-a << endl << endl;
 
+	Point3f P3f(2, 6, 7);
+	cout << "Point (3D) : " << P3f << endl << endl;
+
+
 	//Size可查詢，或作為參數製作矩陣(寬,高)
 	cout << "a的寬高 : " <<  Size(a) << endl;
 	Size c = Size(30, 2);
@@ -18,7 +22,7 @@ int main()
 	cout << "c物件寬 : " << c.width << endl;
 	cout << "c物件高 : " << c.height << endl << endl;
 
-	//x,y寬長
+	//x,y,寬,長
 	Rect d = Rect(1, 2, 30, 30);
 	cout << "矩形物件" << d << endl;
 	cout << "矩形物件x座標" << d.x << endl;
