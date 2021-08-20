@@ -17,8 +17,11 @@ waitKey()
 
 # [2.矩陣](https://github.com/MingY-TSAI/OpenCV/tree/main/%E7%9F%A9%E9%99%A3)
 
-影像基礎
-Mat物件基礎架構
+影像基礎由3通道Mat物件組成(BGR)
+
+ 
+
+以下介紹Mat物件基礎架構:
 
 
 資料型態與通道數(type)
