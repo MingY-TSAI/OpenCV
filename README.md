@@ -18,11 +18,14 @@ waitKey()
 # [2.矩陣](https://github.com/MingY-TSAI/OpenCV/tree/main/%E7%9F%A9%E9%99%A3)
 
 影像基礎
-Mat物件架構
-Scalar(BGR)...
+Mat物件基礎架構
 
 
-對於基礎矩陣操作與基本單位物件
+資料型態與通道數(type)
+
+
+建構Mat函數，基本操作與attribure
+
 
 
 
