@@ -1,62 +1,63 @@
-- rows 矩阵的行数
+- rows 行矩陣的行數
 
-- cols 矩阵的列数
+- cols 矩陣的列數
 
-- size 矩阵的大小
+- size 矩陣的大小
 
-- dims 矩阵的维度
+- 調暗矩陣的維度
 
-- channels 矩阵元素的通道数，如过每个像素都由RGB三部分组成，则channels=3
+- 通道矩陣元素的通道數，如過每個像素都是由RGB三部分組成，則通道數=3
 
-- data uchar（即无符号字符类型unsigned char）指针，指向矩阵数据的指针。
+- data uchar（即無符號字符類型無符號字符）希望，框架數據的查詢。
 
-- type 表示矩阵中元素的数据类型及通道数，具有以下的值：
+- type表示矩陣中元素的數據類型和數量，具有以下的值：
 
-          CV_8UC1     CV_8UC2     CV_8UC3     CV_8UC4
+          CV_8UC1  0   CV_8UC2  8   CV_8UC3  16   CV_8UC4  24
 
-          CV_8SC1     CV_8SC2      CV_8SC3     CV_8SC4
+          CV_8SC1  1   CV_8SC2  9   CV_8SC3  17   CV_8SC4  25
 
-          CV_16UC1   CV_16UC2   CV_16UC3   CV_16UC4
+          CV_16UC1 2   CV_16UC2 10  CV_16UC3 18   CV_16UC4 26
 
-          CV_16SC1   CV_16SC2    CV_16SC3   CV_16SC4
+          CV_16SC1 3   CV_16SC2 11  CV_16SC3 19   CV_16SC4 27
 
-          CV_32SC1   CV_32SC2    CV_32SC3   CV_32SC4
+          CV_32SC1 4   CV_32SC2 12  CV_32SC3 20   CV_32SC4 28
+ 
+          CV_32FC1 5   CV_32FC2 13  CV_32FC3 21   CV_32FC4 29
 
-          CV_32FC1    CV_32FC2    CV_32FC3   CV_32FC4
+          CV_64FC1 6   CV_64FC2 14  CV_64FC3 22   CV_64FC4 30
 
-          CV_64FC1    CV_64FC2    CV_64FC3    CV_64FC4
+U表示無符號整數（unsigned integer），S是有符號整數（有符號整數），F是浮點數（浮點數）。
 
-U表示的是无符号整数（unsigned integer），S是有符号整数（signed integer），F是浮点数（float）。
+例如：CV_16UC2，表示元素類型是一個16位的無符號，通道為2。
 
-例如：CV_16UC2，表示的是元素类型是一个16位的无符号整数，通道为2。
-
-C1，C2，C3，C4则表示通道数是1,2,3,4。
-
-
+C1，C2，C3，C4則表示通道數為1,2,3,4。
 
 
-img1.depth(): 
-代表每個pixel的位元(bit)數，在opencv中的Mat.depth()中得到的是一個0~6的數字，分別代表不同的位數，
-enum{ CV_8U=0, CV_8S=1, CV_16U=2, CV_16S=3, CV_32S=4, CV_32F=5, CV_64F=6}; 
-0和1都代表8位， 2和3都代表16位， 4和5代表32位，6代表64位，test.jpg為CV_8U因此img1.depth()=0。
 
-img1.channels(): 
-代表每個pixel的通到個數，以test.jpg為例為彩色的RGB圖，因此                                                   
+img1.depth():
+代表每個像素的位元(bit)，在opencv中的Mat.depth()中得到的是一個0~6的數字，分別代表不同的數字，
+enum{ CV_8U=0, CV_8S=1, CV_16U=2, CV_16S=3, CV_32S=4, CV_32F=5, CV_64F=6};
+0和1都代表8位，2和3都代表16位，4和5代表32位，6代表64位，test.jpg為CV_8U因此img1.depth()=0。
+
+
+img1.channels():
+代表每個像素的到個數，test.jpg 舉例為彩色的RGB圖，因此
 img1.channels()=3。
 
-img1.elemSize(): 
+img1.elemSize():
 img1.elemSize() = 3 (每一個元素包含3個uchar值),
-img1.elemSize1() = 1 (elemSize/channels); 矩陣中每一個元素的數據大小，如果Mat中的數據類型是CV_8U，則elemSize=1，
-若是CV_8UC3則elemSize=3，若是CV_16UC2則eleSize=4。
+img1.elemSize1() = 1 (elemSize/channels);矩陣中每一個元素的數據大小，如果Mat中的數據類型是 CV_8U，則 elemSize=1，
+果然CV_8UC3則elemSize=3，所以CV_16UC2則eleSize=4。
 
-img1.dims: 
-這張圖片的維度，以這張圖為例，寬x高是二為陣列的資料，所以img1.dims=2。
 
-img1.step: 
-step這個部分有兩個值可以取，第一個是img1.step[0]，另一個是img1.step[1]。 
-img1.step[0]代表一列所有的數據大小，而img1.step[1]代表一個pixel的數據大小，
+img1.dims：
+這張圖片的維度，以這張圖為例，寬x高是二為數據的資料，所以img1.dims=2。
+
+img1.step：
+step部分這個有兩個值可以取，第一個是img1.step[0]，另一個是img1.step[1]。
+img1.step[0]代表一列所有的數據大小，而img1.step[1]代表一個像素的數據大小，
 所以img1.step[0]=img1 .cols * img1 .elemSize() = ˙780*3 = 2340，img1.step[1]=3，
-另外如果看到(int)img1.step這樣的寫法，也就是取img1.step[0]的意思。
+另外如果看到(int)img1.step這樣的寫法，也就是取img1.step[0]的英文。
 
 http://wiki.opencv.org.cn/index.php?title=OpenCV_%E7%BC%96%E7%A8%8B%E7%AE%80%E4%BB%8B%EF%BC%88%E7%9F%A9%E9%98%B5/%E5%9B%BE%E5%83%8F/%E8%A7%86%E9%A2%91%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%BB%E5%86%99%E6%93%8D%E4%BD%9C%EF%BC%89&variant=zh-tw#.E4.BA.94.E3.80.81.E7.9F.A9.E9.98.B5.E5.A4.84.E7.90.86
 https://www.itread01.com/content/1548511039.html
@@ -67,3 +68,6 @@ https://www.jianshu.com/p/181c69a65b0e
 https://www.w3help.cc/a/202107/288733.html
 https://www.itread01.com/content/1550124919.html
 https://blog.csdn.net/Gordon_Wei/article/details/85037684
+
+https://www.w3help.cc/a/202107/288733.html
+https://www.itread01.com/content/1550124919.html
