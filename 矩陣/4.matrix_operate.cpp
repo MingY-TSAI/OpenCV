@@ -98,6 +98,7 @@ int main()
 	//C++: Mat Mat::reshape(int cn, int rows = 0 const)
 	//	cn：目標通道數，如果是0則保持和原通道數一致；
 	//	rows：目標行數，同上是0則保持不變；
+	//在無需複製數據的前提下改變2D矩陣的形狀和通道數或其中之一
 
 	Mat re_d = d.reshape(3, 2);
 	cout << "重新碩型後矩陣 d = " << endl << " " << re_d << endl << endl;

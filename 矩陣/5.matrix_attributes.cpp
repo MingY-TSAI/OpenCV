@@ -12,6 +12,10 @@ int main()
 	o.create(2, size2, CV_8UC3);
 	cout << "矩陣 o = " << endl << " " << o << endl << endl;
 
+	//取o的 一row或col
+	cout << "m1的第一col \n" << o.col(1) << endl << endl;
+	cout << "m1的第一row \n" << o.row(1) << endl << endl;
+
 	//矩陣維度
 	cout << "矩陣維度\n" << o.dims << endl << endl;
 
@@ -60,6 +64,7 @@ int main()
 	//以字節的基本單位，Mat矩阵中每一个像素的大小，累計了所有通道、所有通道的elemSize1之後的值
 	//step1 == step / elemSize1；
 	cout << "step1 == step / elemSize1 == \n" << o.step1() << endl << endl;
+
 
 
 

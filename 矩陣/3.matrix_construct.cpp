@@ -97,25 +97,78 @@ int main()
 	cout << "用Vector  建構新的Mat = \n" << Mat(l, CV_64FC1) << endl << endl;
 
 	//	13、Mat(const std::vector< int > &sizes, int type, void* data, const size_t * steps = 0)
-	Mat o(vector <int> {2, 3}, CV_64FC1, data);
-	cout << "用vector作為size框data 建構Mat \n" << o << endl << endl;
+	Mat m(vector <int> {2, 3}, CV_64FC1, data);
+	cout << "用vector作為size框data 建構Mat \n" << m << endl << endl;
 
 	//	14 、 Mat(int ndims, const int* sizes, int type)
 	//	Mat(int ndims, const int* sizes, int type, const Scalar & s)
 	int sz[2] = { 4, 3 };
-	Mat m(2, sz, CV_64FC1, Scalar(1));
-	cout << "用維度及1維陣列(定義元素數量)並初始化 建構Mat \n" << m << endl << endl;
+	Mat n(2, sz, CV_64FC1, Scalar(1));
+	cout << "用維度及1維陣列(定義元素數量)並初始化 建構Mat \n" << n << endl << endl;
 
 	//	15 、 Mat(int ndims, const int* sizes, int type, void* data, const size_t * steps = 0)
 	int sz1[2] = { 5, 5 };
-	Mat n(2, sz1, CV_64FC1, data);
-	cout << "用維度及1維陣列作為size框data 建構Mat \n" << n << endl << endl;
+	Mat o(2, sz1, CV_64FC1, data);
+	cout << "用維度及1維陣列作為size框data 建構Mat \n" << o << endl << endl;
+
+	//	16 、C++: void Mat::assignTo(Mat & m, int type = -1) const
+	//	Parameters
+	//	m – 目標陣列。
+	//	type – 要求是目標陣列depth或－１（如果陣列的類型和源矩陣類型相同）
+	//	這是一個 internally 使用的由 Matrix Expressions引擎調用的方法。
+	Mat p(10, 10, CV_8UC2);
+
+	Mat q;
+	p.assignTo(q, 6);
+	cout << "a assignTo b,並更改pixel資料型態\n" << q << endl << endl;
+	cout << "原始矩陣a\n" << p << endl << endl;
+	cout << "a.depth\n" << p.depth() << endl << endl;
+	cout << "b.depth\n" << q.depth() << endl << endl;
 
 
+	//17 、void Mat::convertTo(OutputArray m,int rtype,double alpha=1,double beta=0)const
+	//m – 目標矩陣。如果它的尺寸和類型不正確，在操作之前會重新分配。
 
+	//	rtype – 要求是目標矩陣的類型，或者在當前通道數與源矩陣通道數相同的情況下的depth。
+	//  如果rtype 為負，目標矩陣與源矩陣類型相同。
 
+	//	beta – 可選的delta加到縮放值中去。
 
+	//	該方法將源像素值轉化為目標類型saturate_cast<> 要放在最后以避免溢出
 
+	//	m(x; y) = saturate_cast <rType> (α * (*this)(x; y) + β)
+	cout << " converTo \n" << endl << endl;
+
+	Mat r;
+	p.convertTo(r, 6, (1, 0), 200);
+	cout << "全部轉換為純量\n" << r << endl << endl;
+
+	p.convertTo(r, 6, 2, 3);
+	cout << "ax+b 轉換\n" << r << endl << endl;
+
+	//Mat::setTo
+
+	//	將陣列中所有的或部分的元素設置為指定的值。
+
+	//	C++: Mat & Mat::setTo(const Scalar & s, InputArray mask = noArray())
+
+	//	參數：
+
+	//	s – 把標量賦給陣列並轉化到陣列的實際類型。
+
+	//	mask – 與* this尺寸相同的操作掩碼。這是Mat::operator=(const Scalar & s)運算符的一個高級變量。
+	// mask 的SCALAR 0->不遮 ,不等於0 更改值
+	cout << "setTo \n" << endl << endl;
+
+	Mat mask(10, 10, CV_8UC2, Scalar(1, 0));
+	r.setTo(Scalar(200, 30), mask);
+	cout << "遮單通道 \n" << r << endl << endl;
+
+	r.setTo(Scalar(200, 30));
+	cout << "遮雙通道，並用純量取代 \n" << r << endl << endl;
+
+	r.setTo((1, 0), (r > 30, r > 30));
+	cout << "ch1符合條件mask \n" << r << endl << endl;
 
 	return 0;
 }
