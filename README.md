@@ -31,5 +31,17 @@ waitKey()
 
 
 
+# [3.影像處理](https://github.com/MingY-TSAI/OpenCV/tree/main/%E7%9F%A9%E9%99%A3)
+
+1.色彩空間轉換
+
+2.圖像二值化(灰階)
+
+3.過濾器(濾噪)
+
+4.特徵檢測
+
+5.膨脹/侵蝕
+
 
 持續更新...
