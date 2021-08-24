@@ -13,7 +13,7 @@ using namespace cv;
 using namespace std;
 
 
-// �Ϲ��G�Ȥ�(�Ƕ�)�X> �����ҽk(�o��)�X>Canny��t�˴��X>Dilate/Erode�]����/�I�k)
+
 void main() {
 
 	string path = "Resources/0.png";
@@ -23,43 +23,43 @@ void main() {
 	Mat imgGray,  imgBayer, imgdemosaicing;
 
 	
-	//�ഫ��m�Ŷ��A�åH�Ƕ���X
+	//轉換色彩空間，並以灰階輸出
 
 	//void cv::cvtColor(InputArray 	src, OutputArray 	dst, int 	code, int 	dstCn = 0)
 	//Parameters
-	//	src		��J�Ϲ��G8 ��L�Ÿ��B16 ��L�Ÿ� ( CV_16UC... ) �γ��ׯB�I�C
-	//	dst		��X�P src �j�p�M�`�׬ۦP���Ϲ��C
-	//	dstCn	�ؼйϹ������q�D�ơF�p�G�ѼƬ� 0�A�h�q�D�Ʀ۰ʱq src �M code �ɥX
-	//	code	�C��Ŷ��ഫ�N�X  COLOR_BGR2BGRA  COLOR_BGR2GRAY  COLOR_BGR2HSV  COLOR_BayerBG2BGR_VNG 
+	//	src		輸入圖像：8 位無符號、16 位無符號 ( CV_16UC... ) 或單精度浮點。
+	//	dst		輸出與 src 大小和深度相同的圖像。
+	//	dstCn	目標圖像中的通道數；如果參數為 0，則通道數自動從 src 和 code 導出
+	//	code	顏色空間轉換代碼  COLOR_BGR2BGRA  COLOR_BGR2GRAY  COLOR_BGR2HSV  COLOR_BayerBG2BGR_VNG 
 		
-		//1�BRGB�MBGR�]opencv�q�{���m��Ϲ����C��Ŷ��OBGR�^�C��Ŷ����ഫ
+		//1、RGB和BGR（opencv默認的彩色圖像的顏色空間是BGR）顏色空間的轉換
 		//cv::COLOR_BGR2RGB
 		//cv::COLOR_RGB2BGR
 		//cv::COLOR_RGBA2BGRA
 		//cv::COLOR_BGRA2RGBA
 
-		//2�B�VRGB�MBGR�Ϲ����W�Kalpha�q�D
+		//2、向RGB和BGR圖像中增添alpha通道
 		//cv::COLOR_RGB2RGBA
 		//cv::COLOR_BGR2BGRA
 
-		//3�B�qRGB�MBGR�Ϲ����h��alpha�q�D
+		//3、從RGB和BGR圖像中去除alpha通道
 
 		//cv::COLOR_RGBA2RGB
 		//cv::COLOR_BGRA2BGR
 
-		//4�B�qRBG�MBGR�C��Ŷ��ഫ��Ƕ��Ŷ�
+		//4、從RBG和BGR顏色空間轉換到灰階空間
 		//	cv::COLOR_RGB2GRAY
 		//	cv::COLOR_BGR2GRAY
 		//	cv::COLOR_RGBA2GRAY
 		//	cv::COLOR_BGRA2GRAY
 
-		//5�B�q�ǫתŶ��ഫ��RGB�MBGR�C��Ŷ�
+		//5、從灰度空間轉換到RGB和BGR顏色空間
 		//	cv::COLOR_GRAY2RGB
 		//	cv::COLOR_GRAY2BGR
 		//	cv::COLOR_GRAY2RGBA
 		//	cv::COLOR_GRAY2BGRA
 
-		//6�BRGB�MBGR�C��Ŷ��PBGR565�C��Ŷ��������ഫ
+		//6、RGB和BGR顏色空間與BGR565顏色空間之間的轉換
 		//	cv::COLOR_RGB2BGR565
 		//	cv::COLOR_BGR2BGR565
 		//	cv::COLOR_BGR5652RGB
@@ -69,17 +69,17 @@ void main() {
 		//	cv::COLOR_BGR5652RGBA
 		//	cv::COLOR_BGR5652BGRA
 
-		//7�B�ǫתŶ���BGR565�������ഫ
+		//7、灰度空間域BGR565之間的轉換
 		//cv::COLOR_GRAY2BGR555
 		//cv::COLOR_BGR5552GRAY
 
-		//8�BRGB�MBGR�C��Ŷ��PCIE XYZ�������ഫ
+		//8、RGB和BGR顏色空間與CIE XYZ之間的轉換
 		//	cv::COLOR_RGB2XYZ
 		//	cv::COLOR_BGR2XYZ
 		//	cv::COLOR_XYZ2RGB
 		//	cv::COLOR_XYZ2BGR
 
-		//9�BRGB�MBGR�C��Ŷ��Puma��ס]YCrCb�Ŷ��^�������ഫ
+		//9、RGB和BGR顏色空間與uma色度（YCrCb空間）之間的轉換
 		//	cv::COLOR_RGB2YCrCb
 		//	cv::COLOR_BGR2YCrCb
 		//	cv::COLOR_YCrCb2RGB
@@ -87,35 +87,35 @@ void main() {
 
 
 
-		//10�BRGB�MBGR�C��Ŷ��PHSV�C��Ŷ��������ۤ��ഫ
+		//10、RGB和BGR顏色空間與HSV顏色空間之間的相互轉換
 		//	cv::COLOR_RGB2HSV
 		//	cv::COLOR_BGR2HSV
 		//	cv::COLOR_HSV2RGB
 		//	cv::COLOR_HSV2BGR
 
-		//11�BRGB�MBGR�C��Ŷ��PHLS�C��Ŷ��������ۤ��ഫ
+		//11、RGB和BGR顏色空間與HLS顏色空間之間的相互轉換
 		//	cv::COLOR_RGB2HLS
 		//	cv::COLOR_BGR2HLS
 		//	cv::COLOR_HLS2RGB
 		//	cv::COLOR_HLS2BGR
 
-		//12�BRGB�MBGR�C��Ŷ��PCIE Lab�C��Ŷ��������ۤ��ഫ
-		// ��� 8 ��M 16 ��Ϲ��AR�BG �M B �Q�ഫ���B�I�榡���Y��H�A�� 0 �� 1 ���d��C
+		//12、RGB和BGR顏色空間與CIE Lab顏色空間之間的相互轉換
+		// 對於 8 位和 16 位圖像，R、G 和 B 被轉換為浮點格式並縮放以適應 0 到 1 的範圍。
 		//	cv::COLOR_RGB2Lab
 		//	cv::COLOR_BGR2Lab
 		//	cv::COLOR_Lab2RGB
 		//	cv::COLOR_Lab2BGR
 
-		//13�BRGB�MBGR�C��Ŷ��PCIE Luv�C��Ŷ��������ۤ��ഫ
-		// ��� 8 ��M 16 ��Ϲ��AR�BG �M B �Q�ഫ���B�I�榡���Y��H�A�� 0 �� 1 ���d��C
+		//13、RGB和BGR顏色空間與CIE Luv顏色空間之間的相互轉換
+		// 對於 8 位和 16 位圖像，R、G 和 B 被轉換為浮點格式並縮放以適應 0 到 1 的範圍。
 		//	cv::COLOR_RGB2Luv
 		//	cv::COLOR_BGR2Luv
 		//	cv::COLOR_Luv2RGB
 		//	cv::COLOR_Luv2BGR
 		
-		//14�BBayer�榡�]raw data�^�VRGB��BGR�C��Ŷ����ഫ
-		// �s�x�Ω� CCD �M CMOS �۾��C���ϱz����q��ӥ�������m��Ϥ��A
-		// �䤤 R�BG �M B �����]�S�w�ե󪺶ǷP���^���p�U�覡���
+		//14、Bayer格式（raw data）向RGB或BGR顏色空間的轉換
+		// 廣泛用於 CCD 和 CMOS 相機。它使您能夠從單個平面獲取彩色圖片，
+		// 其中 R、G 和 B 像素（特定組件的傳感器）按如下方式交錯
 		//	cv::COLOR_BayerBG2RGB
 		//	cv::COLOR_BayerGB2RGB
 		//	cv::COLOR_BayerRG2RGB
