@@ -39,6 +39,21 @@ waitKey()
 
 3.特徵檢測
 
+--**Canny :為最常見Edge detector**
+
+--**HoughCircles :圓形偵測**
+
+--**HoughLines :線段偵測**
+
+--**preCornerDetect :角點偵測**
+
+--**goodFeaturesToTrack :角點檢測特徵圖**
+
+--**cornerMinEigenVal :自行定義角點檢測**
+
+
+
+
 4.膨脹/侵蝕
 
 
